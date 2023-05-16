@@ -1,0 +1,49 @@
+unit uModul;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, ZAbstractConnection, ZConnection, Data.DB,
+  ZAbstractRODataset, ZAbstractDataset, ZDataset;
+
+type
+  TDataModule1 = class(TDataModule)
+    dbProject: TZConnection;
+    Qjamaah: TZQuery;
+    DSjamaah: TDataSource;
+    Qpengurus: TZQuery;
+    Qkegiatan: TZQuery;
+    Qmubaligh: TZQuery;
+    DSpengurus: TDataSource;
+    DSkegiatan: TDataSource;
+    DSmubaligh: TDataSource;
+    Qjadwal: TZQuery;
+    Qkeuangan: TZQuery;
+    DSjadwal: TDataSource;
+    DSkeuangan: TDataSource;
+    Qkegiatankd_kegiatan: TIntegerField;
+    Qkegiatannama_kegiatan: TWideStringField;
+    Qkegiatantmp_kegiatan: TWideStringField;
+    Qmubalighid_mubaligh: TIntegerField;
+    Qmubalighnama_mubaligh: TWideStringField;
+    Qmubalightmp_lahir: TWideStringField;
+    Qmubalightgl_lahir: TDateField;
+    Qmubalighjk: TWideStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses login;
+
+{$R *.dfm}
+
+end.

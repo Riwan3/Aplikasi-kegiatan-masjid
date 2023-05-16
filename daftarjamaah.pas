@@ -1,0 +1,85 @@
+unit daftarjamaah;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.jpeg, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.ComCtrls;
+
+type
+  TForm3 = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    ednama: TEdit;
+    edtmt: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    DBImage1: TDBImage;
+    edtgl: TDateTimePicker;
+    edjk: TEdit;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+
+implementation
+
+{$R *.dfm}
+
+uses uModul;
+
+procedure TForm3.Button1Click(Sender: TObject);
+begin
+ try
+     with DataModule1 do
+     begin
+          if Trim(ednama.Text)='' then
+          begin
+            beep;
+            ShowMessage('Nama Jamaah belum diisi');
+            ednama.SetFocus;
+          end else
+          if Trim(edtmt.Text)='' then
+          begin
+            beep;
+            ShowMessage('Tempat Lahir belum diisi');
+            edtmt.SetFocus;
+          end else
+          if Qjamaah.Locate('nama',ednama.Text, []) then
+          begin
+            beep;
+            ShowMessage('Nama sudah terdaftar');
+          end else
+          if Qjamaah.Locate('jk',edjk.Text, []) then
+          begin
+
+          end else
+          with DataModule1.Qjamaah do
+             begin
+             Append;
+             FieldByName('tmp_lahir').AsString:=edtmt.Text;
+             FieldByName('nama').AsString:=ednama.Text;
+             FieldByName('tgl_lahir').AsDateTime:=edtgl.Date;
+             FieldByName('jk').AsString:=edjk.Text;
+             post;
+            end;
+
+     end;
+  except
+     on Salah:Exception do
+     ShowMessage(Salah.Message);
+  end;
+
+end;
+end.

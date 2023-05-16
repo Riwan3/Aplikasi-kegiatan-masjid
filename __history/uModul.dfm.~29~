@@ -1,0 +1,175 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 235
+  Width = 557
+  object dbProject: TZConnection
+    ControlsCodePage = cCP_UTF16
+    Catalog = ''
+    Properties.Strings = (
+      'controls_cp=CP_UTF16')
+    Connected = True
+    HostName = '127.0.0.1'
+    Port = 3306
+    Database = '5'
+    User = 'root'
+    Password = ''
+    Protocol = 'mysql'
+    LibraryLocation = 'C:\Users\Feri348\Desktop\project delphi\libmysql.dll'
+    Left = 248
+  end
+  object Qjamaah: TZQuery
+    Connection = dbProject
+    Active = True
+    SQL.Strings = (
+      'select * from jamaah')
+    Params = <>
+    Left = 40
+    Top = 88
+    object Qjamaahid_jamaah: TIntegerField
+      FieldName = 'id_jamaah'
+      Required = True
+    end
+    object Qjamaahnama_jamaah: TWideStringField
+      FieldName = 'nama_jamaah'
+      Required = True
+      Size = 25
+    end
+    object Qjamaahtmp_lahir: TWideStringField
+      FieldName = 'tmp_lahir'
+      Required = True
+      Size = 35
+    end
+    object Qjamaahtgl_lahir: TDateField
+      FieldName = 'tgl_lahir'
+      Required = True
+    end
+    object Qjamaahjk: TWideStringField
+      FieldName = 'jk'
+      Required = True
+    end
+    object Qjamaahno_transaksi: TIntegerField
+      FieldName = 'no_transaksi'
+      Required = True
+    end
+  end
+  object DSjamaah: TDataSource
+    DataSet = Qjamaah
+    Left = 40
+    Top = 168
+  end
+  object Qpengurus: TZQuery
+    Connection = dbProject
+    Active = True
+    SQL.Strings = (
+      'select*from pengurus')
+    Params = <>
+    Left = 120
+    Top = 88
+  end
+  object Qkegiatan: TZQuery
+    Connection = dbProject
+    Active = True
+    SQL.Strings = (
+      'select * from kegiatan')
+    Params = <>
+    Left = 200
+    Top = 88
+    object Qkegiatankd_kegiatan: TIntegerField
+      DisplayLabel = 'No'
+      DisplayWidth = 10
+      FieldName = 'kd_kegiatan'
+      Required = True
+    end
+    object Qkegiatannama_kegiatan: TWideStringField
+      DisplayLabel = 'Nama Kegiatan'
+      FieldName = 'nama_kegiatan'
+      Required = True
+    end
+    object Qkegiatantmp_kegiatan: TWideStringField
+      DisplayLabel = 'Tempat Acara'
+      FieldName = 'tmp_kegiatan'
+      Required = True
+      Size = 25
+    end
+  end
+  object Qmubaligh: TZQuery
+    Connection = dbProject
+    Active = True
+    SQL.Strings = (
+      'select * from mubaligh')
+    Params = <>
+    Left = 264
+    Top = 88
+    object Qmubalighid_mubaligh: TIntegerField
+      DisplayLabel = 'No'
+      FieldName = 'id_mubaligh'
+      Required = True
+    end
+    object Qmubalighnama_mubaligh: TWideStringField
+      DisplayLabel = 'Nama Mubaligh'
+      FieldName = 'nama_mubaligh'
+      Required = True
+      Size = 25
+    end
+    object Qmubalightmp_lahir: TWideStringField
+      DisplayLabel = 'Tempat Lahir'
+      FieldName = 'tmp_lahir'
+      Required = True
+      Size = 35
+    end
+    object Qmubalightgl_lahir: TDateField
+      DisplayLabel = 'Tanggal Lahir'
+      FieldName = 'tgl_lahir'
+      Required = True
+    end
+    object Qmubalighjk: TWideStringField
+      DisplayLabel = 'Jenis Kelamin'
+      FieldName = 'jk'
+      Required = True
+      Size = 1
+    end
+  end
+  object DSpengurus: TDataSource
+    DataSet = Qpengurus
+    Left = 120
+    Top = 168
+  end
+  object DSkegiatan: TDataSource
+    DataSet = Qkegiatan
+    Left = 200
+    Top = 168
+  end
+  object DSmubaligh: TDataSource
+    DataSet = Qmubaligh
+    Left = 272
+    Top = 168
+  end
+  object Qjadwal: TZQuery
+    Connection = dbProject
+    Active = True
+    SQL.Strings = (
+      'select * from jadwal')
+    Params = <>
+    Left = 336
+    Top = 88
+  end
+  object Qkeuangan: TZQuery
+    Connection = dbProject
+    Active = True
+    SQL.Strings = (
+      'select * from keuangan')
+    Params = <>
+    Left = 408
+    Top = 88
+  end
+  object DSjadwal: TDataSource
+    DataSet = Qjadwal
+    Left = 336
+    Top = 168
+  end
+  object DSkeuangan: TDataSource
+    DataSet = Qkeuangan
+    Left = 408
+    Top = 168
+  end
+end

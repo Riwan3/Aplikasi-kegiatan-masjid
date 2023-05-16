@@ -1,0 +1,35 @@
+unit mubaligh;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Imaging.jpeg,
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TForm7 = class(TForm)
+    DBGrid1: TDBGrid;
+    Image1: TImage;
+    Label1: TLabel;
+    Button1: TButton;
+    Edit1: TEdit;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form7: TForm7;
+
+implementation
+
+{$R *.dfm}
+
+uses uModul;
+
+end.

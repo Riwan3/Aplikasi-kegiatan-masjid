@@ -1,0 +1,63 @@
+unit daftarjamaah;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.jpeg, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.ComCtrls;
+
+type
+  TForm3 = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    ednama: TEdit;
+    edtmt: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    DBImage1: TDBImage;
+    Button5: TButton;
+    DateTimePicker1: TDateTimePicker;
+    GroupBox1: TGroupBox;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+
+implementation
+
+{$R *.dfm}
+
+uses uModul;
+
+procedure TForm3.Button1Click(Sender: TObject);
+begin
+try
+    with DataModule1.Qjamaah do
+    begin
+     Append;
+     FieldByName('nama_jamaah').AsString:=ednama.Text;
+     FieldByName('tmp_lahir').AsString:=edtmt.Text;
+     FieldByName('tgl_lahir').AsDateTime:=edtgl.Date;
+     FieldByName('telp').AsString:=edtelp.Text;
+     post;
+    end;
+except
+  on Salah:Exception do
+  ShowMessage(Salah.Message);
+   end;
+end;
+
+end.

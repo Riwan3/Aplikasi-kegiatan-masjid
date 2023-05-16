@@ -1,0 +1,37 @@
+unit uModul;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, ZAbstractConnection, ZConnection, Data.DB,
+  ZAbstractRODataset, ZAbstractDataset, ZDataset;
+
+type
+  TDataModule1 = class(TDataModule)
+    dbProject: TZConnection;
+    Qjamaah: TZQuery;
+    DSjamaah: TDataSource;
+    Qpengurus: TZQuery;
+    ZQuery3: TZQuery;
+    ZQuery4: TZQuery;
+    DSpengurus: TDataSource;
+    DataSource3: TDataSource;
+    DataSource4: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses login;
+
+{$R *.dfm}
+
+end.

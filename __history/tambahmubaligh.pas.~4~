@@ -1,0 +1,38 @@
+unit tambahmubaligh;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.DBCtrls, Vcl.StdCtrls,
+  Vcl.Imaging.pngimage, Vcl.Imaging.jpeg, Vcl.ExtCtrls;
+
+type
+  TForm9 = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    Edit1: TEdit;
+    Edit4: TEdit;
+    Label1: TLabel;
+    Label4: TLabel;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    DBImage1: TDBImage;
+    Button5: TButton;
+    Label2: TLabel;
+    Edit2: TEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form9: TForm9;
+
+implementation
+
+{$R *.dfm}
+
+end.
